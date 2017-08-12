@@ -1,24 +1,21 @@
-puts 'Enter as many words as you like and stop by pressing Enter twice.'
+puts 'Type in as many words as you like.'
+puts 'Stop by pressing Enter on an empty line.'
 item = gets.chomp
 list = []
 
+# add words to end of list
 while item != ''
-  # add word to end of list with push
   list.push item
   item = gets.chomp
 end
 
-# start new list with first item in original list
-sorted_list = [list[0]]
+# debug list
+list = [5,4,3,2,1]
+puts list.to_s
+i = 0
 
-
-list.each do |item|
-  if item < sorted_list[0]
-    # add to beginning
-    sorted_list = [item] + sorted_list
-  else
-    # find the right spot
+while i < list.length
+  if list[i] == list.min
+    list[i], list[0] = list[0], list[i]
   end
 end
-
-puts sorted_list
